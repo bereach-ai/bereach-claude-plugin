@@ -1,0 +1,9 @@
+{
+  "name": "bereach",
+  "version": "0.1.0",
+  "description": "LinkedIn outreach automation via BeReach — MCP tools, typed SDK, behavioral skill.",
+  "author": {
+    "name": "BeReach",
+    "email": "alexandre@berea.ch"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "bereach": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote@0.1.25",
+        "https://mcp.bereach.dev/sse",
+        "--header",
+        "api-token:${BEREACH_API_KEY}"
+      ],
+      "env": {
+        "BEREACH_API_KEY": ""
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "bereach-plugins",
+  "owner": {
+    "name": "BeReach",
+    "email": "alexandre@berea.ch"
+  },
+  "plugins": [
+    {
+      "name": "bereach",
+      "source": "./",
+      "description": "LinkedIn outreach automation via BeReach"
+    }
+  ]
+}
