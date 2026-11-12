@@ -1,9 +1,23 @@
 {
   "name": "bereach",
-  "version": "0.1.0",
-  "description": "LinkedIn outreach automation via BeReach — MCP tools, typed SDK, behavioral skill.",
+  "version": "1.0.0",
+  "description": "Find the people who match your ideal customer, read profiles and the people reacting to a post, find work emails, and prepare first messages, from Claude.",
   "author": {
     "name": "BeReach",
-    "email": "alexandre@berea.ch"
-  }
+    "url": "https://bereach.ai"
+  },
+  "homepage": "https://bereach.ai/linkedin-claude",
+  "repository": "https://github.com/bereach-ai/bereach-claude-plugin",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "sales",
+    "lead-generation",
+    "prospecting",
+    "linkedin",
+    "outreach",
+    "crm"
+  ],
+  "icon": ".claude-plugin/icon.png",
+  "privacyPolicyUrl": "https://bereach.ai/legal/privacy"
 }

@@ -1,14 +1,15 @@
 {
-  "name": "bereach-plugins",
+  "name": "bereach",
   "owner": {
     "name": "BeReach",
-    "email": "alexandre@berea.ch"
+    "url": "https://bereach.ai"
   },
+  "description": "BeReach for Claude Code: find the people who match your ideal customer and prepare first messages.",
   "plugins": [
     {
       "name": "bereach",
       "source": "./",
-      "description": "LinkedIn outreach automation via BeReach"
+      "description": "The BeReach MCP server for Claude Code: find the people who match your ideal customer and prepare first messages."
     }
   ]
 }

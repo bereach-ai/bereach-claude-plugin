@@ -1,74 +1,75 @@
-# BeReach — Claude Code Plugin
+# BeReach MCP server
 
-LinkedIn outreach automation via [BeReach](https://berea.ch). Gives Claude access to 33 LinkedIn tools via MCP, plus a behavioral skill for campaign management.
+Describe your ideal customer in one sentence, or paste a LinkedIn post, and BeReach finds the people who match and
+helps you write the first message. This repository connects BeReach to Claude, Claude Code, ChatGPT and any client
+that speaks remote MCP.
 
-## Install
+- Server URL: `https://mcp.bereach.ai/mcp` (Streamable HTTP)
+- Sign-in: OAuth in your browser. No API key to copy, a new account works too.
+- Website: [bereach.ai](https://bereach.ai)
 
-```bash
-claude plugin install bereach/claude-code-plugin
+## What you can ask
+
+- Find the people who match your ideal customer, by role, company, place or industry
+- Find the companies that fit, and the people who work there
+- Read a profile, or the people who reacted to and commented on a post
+- Spot buying signals, such as a company hiring for a role
+- Find work emails
+- Prepare first messages in your own voice, and keep your list in one place
+
+Ask in plain words, for example: who are the heads of sales at fintech companies in Germany with 50 to 200 people?
+
+## Set up
+
+### Claude (claude.ai and the desktop app)
+
+Settings, Connectors, Add custom connector, then paste `https://mcp.bereach.ai/mcp` and sign in.
+Step by step with pictures: [bereach.ai/linkedin-claude](https://bereach.ai/linkedin-claude).
+
+### Claude Code
+
+Install this repository as a plugin:
+
+```
+/plugin marketplace add bereach-ai/bereach-claude-plugin
+/plugin install bereach@bereach
 ```
 
-Or test locally:
+Or add the server directly:
 
 ```bash
-claude --plugin-dir ./apps/web2/plugins/claude-code
+claude mcp add --transport http bereach https://mcp.bereach.ai/mcp
 ```
 
-## Setup
+Then type `/mcp`, pick bereach and sign in. More help: [bereach.ai/docs/claude-code](https://bereach.ai/docs/claude-code).
 
-### 1. Set your API key
-
-The plugin ships with `.mcp.json` which auto-configures the MCP server. You just need to set the `BEREACH_API_KEY` environment variable:
-
-```bash
-export BEREACH_API_KEY=brc_your_token_here
-```
-
-Or add it to your shell profile (`~/.zshrc`, `~/.bashrc`).
-
-### 2. MCP config (auto-configured)
-
-The plugin includes `.mcp.json` at its root — Claude Code detects it automatically. No manual MCP setup needed.
-
-If you need manual config (e.g. for `claude_desktop_config.json`):
+### Any other MCP client
 
 ```json
 {
   "mcpServers": {
     "bereach": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "mcp-remote@0.1.25",
-        "https://mcp.bereach.dev/sse",
-        "--header",
-        "api-token:${BEREACH_API_KEY}"
-      ],
-      "env": {
-        "BEREACH_API_KEY": "brc_your_token_here"
-      }
+      "type": "http",
+      "url": "https://mcp.bereach.ai/mcp"
     }
   }
 }
 ```
 
-## Usage
+## Skills
 
-Type `/bereach:bereach` to see quick actions, or just ask Claude to:
+Six Claude skills for prospecting (personas, your voice, invitations, first messages, follow-ups, results at seven
+days) live in their own repository:
+[bereach-ai/linkedin-prospecting-skills](https://github.com/bereach-ai/linkedin-prospecting-skills).
 
-- Check your credits or rate limits
-- Search LinkedIn profiles or posts
-- Visit a profile and get contact data
-- Start a lead magnet campaign
+## Pricing
 
-The BeReach skill is loaded automatically and teaches Claude campaign workflows, pacing rules, and anti-hallucination constraints.
+14-day free trial. Then Pro at 99 € a month, or pay as you go from 20 €. You only pay for what is found.
 
-## What's included
+## License
 
-| Component | Description |
-| --- | --- |
-| `.mcp.json` | MCP server auto-configuration |
-| `commands/bereach.md` | `/bereach` slash command |
-| `skills/bereach/SKILL.md` | Main behavioral skill |
-| `skills/bereach/sub/lead-magnet.md` | Lead magnet workflow |
-| `skills/bereach/sdk-reference.md` | SDK method reference |
+MIT
+
+## Privacy
+
+[bereach.ai/legal/privacy](https://bereach.ai/legal/privacy)
